@@ -5,7 +5,6 @@ class TopicsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @topics }
     end
   end
 

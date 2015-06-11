@@ -5,7 +5,6 @@ class GlobalController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @levels }
     end
   end
 
