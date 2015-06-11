@@ -4,6 +4,7 @@ class Question < ActiveRecord::Base
   has_many :answers, :dependent => :destroy
   has_and_belongs_to_many :sub_topics
 
+  validates :level_id, presence: true
   accepts_nested_attributes_for :answers, :reject_if => lambda { |answer| answer[:content].blank? }, :allow_destroy => true
 
   def good_answers
