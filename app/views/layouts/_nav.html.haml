@@ -1,0 +1,8 @@
+%nav
+  %ul
+    %li
+      = link_to "Jouer", levels_path, data: {type: :html}, id: 'index_levels'
+    %li
+      = link_to image_tag("/kesako.png", :border => 0, size: "48x48", alt: "Kesako logo"), root_path, data: {type: :html}, id: 'root'
+    %li
+      = link_to "Gérer", questions_path, data: {type: :html}, id: 'index_questions'
