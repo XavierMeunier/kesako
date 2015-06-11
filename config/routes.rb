@@ -14,6 +14,18 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  root 'global#home'
+
+  get 'levels/:name/question' => 'levels#random_question', as: :random_question
+
+
+  resources :topics
+  resources :subtopics
+  resources :questions
+  resources :answers
+  resources :levels
+
+
   # Example resource route with options:
   #   resources :products do
   #     member do
