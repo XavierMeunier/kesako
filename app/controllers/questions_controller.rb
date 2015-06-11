@@ -6,13 +6,14 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @questions }
     end
   end
 
   def new
     @question = Question.new()
     @levels = Level.all.order("difficulty")
+    @sub_topics = SubTopic.all.order("topic_id")
+    @topics = Topic.all.shuffle
 
     respond_to do |format|
       format.html
@@ -25,6 +26,9 @@ class QuestionsController < ApplicationController
       redirect_to questions_url, notice: 'La question a été crée'
     else
       @levels = Level.all.order("difficulty")
+      @sub_topics = SubTopic.all.order("topic_id")
+      @topics = Topic.all.shuffle
+
       flash[:alert] = @question.errors.full_messages
       render :new
     end
@@ -33,6 +37,8 @@ class QuestionsController < ApplicationController
   def edit
     @question = Question.find(params[:id])
     @levels = Level.all.order("difficulty")
+    @sub_topics = SubTopic.all.order("topic_id")
+    @topics = Topic.all.shuffle
 
     respond_to do |format|
       format.html
@@ -45,6 +51,9 @@ class QuestionsController < ApplicationController
       redirect_to questions_url, notice: 'La question a été mise à jour'
     else
       @levels = Level.all.order("difficulty")
+      @sub_topics = SubTopic.all.order("topic_id")
+      @topics = Topic.all.shuffle
+
       flash[:alert] = @question.errors.full_messages
       render :edit
     end
