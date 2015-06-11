@@ -1,5 +1,5 @@
 %div.q_topic
-  %h1= "#{@sub_topics.first.topic.name}: "
+  %h1= "#{@sub_topics.first.topic.name}: " if !@sub_topics.blank?
 
 %div.q_content
   = @question.content
@@ -11,6 +11,6 @@
   %p
     = f.submit "Répondre", class: "q_submit"
 
-%div.q_tags
-  = "Tags: #{@sub_topics.map{|st| "#{st.name} (#{st.topic.name})"}.join(", ")}"
-   
+- if !@sub_topics.blank?
+  %div.q_tags
+    = "Tags: #{@sub_topics.map{|st| "#{st.name} (#{st.topic.name})"}.join(", ")}"   
