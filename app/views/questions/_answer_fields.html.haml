@@ -1,0 +1,10 @@
+%tr.row
+  %td.nested-fields
+    = f.text_field :content, class: "q_answer small"
+  %td.nested-fields
+    = f.check_box :correct
+  %td.nested-fields
+    = f.check_box :default
+  %td.nested-fields
+    = f.hidden_field :_destroy, :class => 'removable'
+    = remove_child_button

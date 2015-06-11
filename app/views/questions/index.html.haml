@@ -1,0 +1,11 @@
+= link_to "#{image_tag("/create.png", :border => 0, size: "30x30", alt: "create").html_safe} Créer".html_safe, new_question_path, data: {type: :html}, id: 'new_question'
+%table#manage
+  %tbody
+  - @questions.each do |q|
+    %tr
+      %td
+        = link_to image_tag("/edit.png", :border => 0, size: "15x15", alt: "edit"), edit_question_path(q.id), data: {type: :html}, id: 'edit_question'
+      %td
+        = link_to image_tag("/delete.png", :border => 0, size: "15x15", alt: "delete"), q, method: :delete, data: {type: :html}, id: 'delete_question'
+      %td
+        = q.content

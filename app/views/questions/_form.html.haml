@@ -1,0 +1,32 @@
+= form_for @question do |f|
+  %div.content
+    %br
+    = f.text_field :content, class: "q_answer"
+
+  %div.level_box
+    = f.label :level, "Niveau"
+    %div.dropdown
+      = f.collection_select :level_id, @levels,:id,:name
+
+  %div.new_answer
+    = add_child_button "Nouvelle Réponse",:answers,"answers"
+    = new_fields_template f, :answers
+
+  %div#answers
+    %table#manage
+      %thead
+        %tr
+          %td
+            Contenu
+          %td
+            Correct
+          %td
+            Défaut
+          %td
+            Supprimer
+      %tbody
+        = f.fields_for :answers do |builder|
+          =render "answer_fields", :f => builder
+
+  %p.button
+    = f.submit "Sauvegarder", class: "q_submit"
