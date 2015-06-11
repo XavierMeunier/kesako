@@ -3,7 +3,7 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.text :content
       t.integer :level_id
-      t.timestamp
+      t.timestamps
 
       t.index :level_id
     end
