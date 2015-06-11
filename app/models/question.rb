@@ -8,6 +8,7 @@ class Question < ActiveRecord::Base
 
   def good_answers
     gas = self.answers.find_all{ |a| a.correct }.map{|a| a.content}
+    # 42 is the answer to everything is there is no rational answer
     gas.blank? ? ["42"] : gas
   end
 
