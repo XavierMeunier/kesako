@@ -1,0 +1,9 @@
+%div.q_content
+  = @question.content
+
+=form_for @answer do |f|
+  = f.hidden_field :question_id, value: @answer.question_id
+  %p
+    = f.text_field :content, class: "q_answer"
+  %p
+    = f.submit "Répondre", class: "q_submit"

@@ -1,0 +1,4 @@
+%div.levels
+  - @levels.each do |l|
+    %div.level
+      = link_to "#{l.name}", random_question_path(l.name), data: {type: :html}, id: 'random_question', class: "levels_button #{l.name.downcase}"
