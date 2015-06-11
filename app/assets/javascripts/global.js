@@ -2,7 +2,9 @@ $(function(){
   edit_child();
 });
 
+// Edit child objects
 function edit_child(){
+  // Add child objects
   $(document).on("click", ".add_child", function() {
     var association = $(this).attr('data-association');
     var target = $(this).attr('target');
@@ -14,14 +16,10 @@ function edit_child(){
     return false;
   });
 
+  // Remove child objects
   $(document).on("click" ,".remove_child", function() {
     $(this).closest(".row").find('.removable')[0].value = 1;
     $(this).closest(".row").hide();
     return false;
   });
-}
-
-function replace_content(data){
-  console.log(data);
-  $("body").html(data);
 }
