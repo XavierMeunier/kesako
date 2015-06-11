@@ -8,6 +8,16 @@
     %div.dropdown
       = f.collection_select :level_id, @levels,:id,:name
 
+  %div.topics
+    %h1 Sujets
+    - @topics.each do |t|
+      %div.topic
+        %strong= t.name
+        = f.collection_check_boxes :sub_topic_ids, t.sub_topics, :id, :name do |b|
+          .my-checkbox-wrapper
+            = b.check_box
+            = b.label
+
   %div.new_answer
     = add_child_button "Nouvelle Réponse",:answers,"answers"
     = new_fields_template f, :answers

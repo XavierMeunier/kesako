@@ -1,4 +1,4 @@
-= link_to "#{image_tag("/create.png", :border => 0, size: "30x30", alt: "create").html_safe} Créer".html_safe, new_question_path, data: {type: :html}, id: 'new_question'
+= link_to "#{image_tag("/create.png", :border => 0, size: "30x30", alt: "create").html_safe} Créer une question".html_safe, new_question_path, data: {type: :html}, id: 'new_question'
 %table#manage
   %tbody
   - @questions.each do |q|
