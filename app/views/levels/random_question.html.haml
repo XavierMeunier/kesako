@@ -1,3 +1,6 @@
+%div.q_topic
+  %h1= "#{@sub_topics.first.topic.name}: "
+
 %div.q_content
   = @question.content
 
@@ -7,3 +10,7 @@
     = f.text_field :content, class: "q_answer"
   %p
     = f.submit "Répondre", class: "q_submit"
+
+%div.q_tags
+  = "Tags: #{@sub_topics.map{|st| "#{st.name} (#{st.topic.name})"}.join(", ")}"
+   
